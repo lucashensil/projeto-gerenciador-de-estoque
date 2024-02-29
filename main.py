@@ -120,7 +120,7 @@ class Funcs():
             self.aba2 = Frame(self.abas)
 
             self.abas.add(self.aba1, text='Estoque')
-            self.abas.add(self.aba2, text='Movimentacoes')
+            self.abas.add(self.aba2, text='Movimentações')
 
             self.aba1.configure(bg='#25a244')
             self.aba2.configure(bg='#25a244')
@@ -256,12 +256,12 @@ class Funcs():
         filemenu = Menu(menubar, tearoff=0, foreground='#25a244')
         filemenu2 = Menu(menubar, tearoff=0, foreground='#b32020')
 
-        menubar.add_cascade(label='Opcoes', menu=filemenu)
+        menubar.add_cascade(label='Opções', menu=filemenu)
         menubar.add_cascade(label='Ajuda', menu=filemenu2)  
 
         filemenu.add_command(label='Gerar Planilha', command=self.planilhar)
         
-        filemenu2.add_command(label='Instrucoes', command=self.help_window)
+        filemenu2.add_command(label='Instruções', command=self.help_window)
         filemenu2.add_command(label='Sair', command=lambda: (window.destroy()))
     def limpar_tela(self):
         try:
@@ -429,8 +429,6 @@ class Funcs():
             messagebox.showinfo('Alerta', 'O arquivo foi salvo na Pasta Selecionada')
 
 
-
-
 class App(Funcs):
     def __init__(self):
         self.window = window
@@ -493,7 +491,7 @@ class App(Funcs):
         self.aba2 = Frame(self.abas, background='#2b2b2b')
 
         self.abas.add(self.aba1, text='Sobre Abas')
-        self.abas.add(self.aba2, text='Instrucoes')
+        self.abas.add(self.aba2, text='Instruções')
         self.abas.place(relx=0.02, rely=0.01, relheight=0.96, relwidth=0.96)
 
         sobre = '''
@@ -520,7 +518,7 @@ class App(Funcs):
         Utilize esta função para tomar decisões informadas sobre o gerenciamento do estoque.
 
         
-        AJUDA: Aba atual. Resumo de as outras abas e informações uteis para a utilizacao  
+        AJUDA: Aba atual. Resumo de as outras abas e informações uteis para a utilizações  
         '''
 
         self.label_sobre = ctk.CTkLabel(self.aba1, fg_color='#2b2b2b', text=sobre, font=('Helvetica', 16, 'bold'), anchor='nw', justify='left')
@@ -533,25 +531,25 @@ class App(Funcs):
         
         Detalhes Importantes: 
 
-        Para registrar um produto, informe de forma correta o nome, categoria e codigo. 
-        Alteracoes nao serao possiveis nestes campos.
-        Sao permitidos repeticoes nos campos de nome e categoria, 
-        porem ao tentar registrar produtos com dois codigos iguais, um erro acontecera.
+        Para registrar um produto, informe de forma correta o nome, categoria e código. 
+        Alterações não serão possiveis nestes campos.
+        São permitidos repetições nos campos de nome e categoria, 
+        porem ao tentar registrar produtos com dois codigos iguais, um erro acontecerá.
 
         
-        Ao remover um produto do estoque, todas as informacoes do mesmo sumira no 
-        historico de movimentacoes.
+        Ao remover um produto do estoque, todas as informações do mesmo sumirá no 
+        historico de movimentações.
 
         
         Para buscar um produto ou categoria, preencha apenas os campos necessarios 
-        na aba de visualizar e aperte o botao 'Buscar'.
-        Apos o uso, aperte o botao ao lado para reiniciar a visualizacao.
+        na aba de visualizar e aperte o botão 'Buscar'.
+        Após o uso, aperte o botão ao lado para reiniciar a visualização.
 
         Em todas as abas ha a funcionalidade de clique duplo, utilize para pegar as
-        informacoes de forma mais rapida.
-        Ha tambem o botao 'limpar', o utilize para limpar a tela.
+        informações de forma mais rápida.
+        Há tambem o botão 'limpar', o utilize para limpar a tela.
 
-        Caso deseje gerar uma planilha excel, havera um botao em visualizar e em opcoes.
+        Caso deseje gerar uma planilha excel, haverá um botão em visualizar e em opções.
         """
 
         self.label_instrucoes = ctk.CTkLabel(self.aba2, fg_color='#2b2b2b', text=instrucoes, font=('Helvetica', 16, 'bold'), anchor='nw', justify='left')
