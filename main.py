@@ -254,16 +254,15 @@ class Funcs():
         menubar =   Menu(self.janela)
         self.janela.config(menu=menubar)
         filemenu = Menu(menubar, tearoff=0, foreground='#25a244')
-        filemenu2 = Menu(menubar, tearoff=0)
+        filemenu2 = Menu(menubar, tearoff=0, foreground='#b32020')
 
         menubar.add_cascade(label='Opcoes', menu=filemenu)
         menubar.add_cascade(label='Ajuda', menu=filemenu2)  
 
-        # filemenu.add_command(label='Gerar Relatorio')
-        filemenu.add_command(label='Gerar Planilha')
+        filemenu.add_command(label='Gerar Planilha', command=self.planilhar)
         
+        filemenu2.add_command(label='Instrucoes', command=self.help_window)
         filemenu2.add_command(label='Sair', command=lambda: (window.destroy()))
-        filemenu2.add_command(label='Instrucoes')
     def limpar_tela(self):
         try:
             self.entry_cod_produto.delete(0, END)
