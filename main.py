@@ -477,6 +477,7 @@ class App(Funcs):
         # pass
         self.window = Tk.iconify(window)
         self.janela = ctk.CTkToplevel(window)
+        self.criar_menu(self.janela)
 
         self.janela.title(f'Gerenciador de Estoque (Ajuda)')
         self.janela.geometry('800x700')
@@ -492,11 +493,42 @@ class App(Funcs):
         self.aba1 = Frame(self.abas, background='#2b2b2b')
         self.aba2 = Frame(self.abas)
 
-        self.abas.add(self.aba1, text='###')
+        self.abas.add(self.aba1, text='Sobre Abas')
         self.abas.add(self.aba2, text='###')
-        self.abas.place(relx=0.02, rely=0.02, relheight=0.96, relwidth=0.96)
+        self.abas.place(relx=0.02, rely=0.01, relheight=0.96, relwidth=0.96)
 
-        self.label1
+        instrucoes = '''
+
+
+
+
+        ADICIONAR: Esta função permite adicionar ou retirar produtos do estoque rapidamente. 
+        Basta inserir a quantidade desejada de produtos a serem adicionados ou removidos. 
+        Certifique-se de verificar a disponibilidade do produto antes de realizar qualquer modificação.
+
+        
+        REGISTRAR: A função de registro é essencial para manter um controle preciso do estoque. 
+        Aqui, você pode registrar a entrada ou saída de produtos, além de poder modificar o preço 
+        de um produto, se necessário. 
+        Remover um produto resultará na exclusão completa de seus registros do sistema.
+        obs: ⟳  ao clicar altera o preco
+
+        
+        VISUALIZAR: Esta função oferece uma visão abrangente do estoque permitindo visualizar todos 
+        os produtos disponíveis, juntamente com suas quantidades e movimentações de entrada e 
+        saída. Além disso, você pode acessar uma planilha detalhada do estoque para uma análise mais 
+        aprofundada. 
+        Utilize esta função para tomar decisões informadas sobre o gerenciamento do estoque.
+
+        
+        AJUDA: Aba atual. Resumo de as outras abas e informações uteis para a utilizacao  
+        '''
+
+        self.label = ctk.CTkLabel(self.aba1, fg_color='#2b2b2b', text=instrucoes, font=('Helvetica', 16, 'bold'), anchor='nw', justify='left')
+        
+        self.label.place(relx=0, rely=0.03, relheight=0.9, relwidth=1,)
+
+
     def Menu(self):
         self.criar_menu(janela=self.window)
  
