@@ -3,6 +3,8 @@ __pycache__/
 *.py[cod]
 *$py.class
 
+CSV_Estoque.csv
+
 # C extensions
 *.so
 

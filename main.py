@@ -473,7 +473,7 @@ class App(Funcs):
     def visu_window(self):
         self.criar_janela(arg=2, nome='Visualizar')
     def help_window(self):
-        # pass
+
         self.window = Tk.iconify(window)
         self.janela = ctk.CTkToplevel(window)
         self.criar_menu(self.janela)
@@ -490,13 +490,13 @@ class App(Funcs):
         self.style.configure('TNotebook.Tab', font=('Helvetica', 12, ''))
         self.abas = ttk.Notebook(self.janela)
         self.aba1 = Frame(self.abas, background='#2b2b2b')
-        self.aba2 = Frame(self.abas)
+        self.aba2 = Frame(self.abas, background='#2b2b2b')
 
         self.abas.add(self.aba1, text='Sobre Abas')
-        self.abas.add(self.aba2, text='###')
+        self.abas.add(self.aba2, text='Instrucoes')
         self.abas.place(relx=0.02, rely=0.01, relheight=0.96, relwidth=0.96)
 
-        instrucoes = '''
+        sobre = '''
 
 
 
@@ -523,11 +523,42 @@ class App(Funcs):
         AJUDA: Aba atual. Resumo de as outras abas e informações uteis para a utilizacao  
         '''
 
-        self.label = ctk.CTkLabel(self.aba1, fg_color='#2b2b2b', text=instrucoes, font=('Helvetica', 16, 'bold'), anchor='nw', justify='left')
+        self.label_sobre = ctk.CTkLabel(self.aba1, fg_color='#2b2b2b', text=sobre, font=('Helvetica', 16, 'bold'), anchor='nw', justify='left')
+        self.label_sobre.place(relx=0, rely=0.03, relheight=0.9, relwidth=1,)
+
+        instrucoes = """
+        Este gerenciador funciona de forma simples, qualquer problema que acontecer apenas o 
+        reinicie que voltara ao normal.
+
         
-        self.label.place(relx=0, rely=0.03, relheight=0.9, relwidth=1,)
+        Detalhes Importantes: 
 
+        Para registrar um produto, informe de forma correta o nome, categoria e codigo. 
+        Alteracoes nao serao possiveis nestes campos.
+        Sao permitidos repeticoes nos campos de nome e categoria, 
+        porem ao tentar registrar produtos com dois codigos iguais, um erro acontecera.
 
+        
+        Ao remover um produto do estoque, todas as informacoes do mesmo sumira no 
+        historico de movimentacoes.
+
+        
+        Para buscar um produto ou categoria, preencha apenas os campos necessarios 
+        na aba de visualizar e aperte o botao 'Buscar'.
+        Apos o uso, aperte o botao ao lado para reiniciar a visualizacao.
+
+        Em todas as abas ha a funcionalidade de clique duplo, utilize para pegar as
+        informacoes de forma mais rapida.
+        Ha tambem o botao 'limpar', o utilize para limpar a tela.
+
+        Caso deseje gerar uma planilha excel, havera um botao em visualizar e em opcoes.
+        """
+
+        self.label_instrucoes = ctk.CTkLabel(self.aba2, fg_color='#2b2b2b', text=instrucoes, font=('Helvetica', 16, 'bold'), anchor='nw', justify='left')
+        self.label_instrucoes.place(relx=0, rely=0.03, relheight=0.9, relwidth=1,)
+
+        self.bt_voltar = ctk.CTkButton(self.abas, text='Voltar', fg_color='#a4161a', hover_color='#e5383b', font=('Helvetica', 12, 'bold'), command=lambda: self.fechar_max(self.janela), bg_color='#a4161a')
+        self.bt_voltar.place(relx=0.03, rely=0.9, relwidth=0.1, relheight=0.05)
     def Menu(self):
         self.criar_menu(janela=self.window)
  
